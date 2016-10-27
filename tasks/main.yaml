@@ -11,7 +11,9 @@
   - libyaml-dev
   - ipython
 - name: git config user.name
-  shell: git config --global user.name {{ user_name }}
+  git_config: name=user.name scope=global value="{{ user_name }}"
+  #shell: git config --global user.name {{ user_name }}
 - name: git config user.email
-  shell: git config --global user.email {{ user_email }}
+  git_config: name=user.email scope=global value="{{ user_email }}"
+  #shell: git config --global user.email {{ user_email }}
 
