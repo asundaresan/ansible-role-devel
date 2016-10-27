@@ -1,0 +1,17 @@
+- name: Install devel packages
+  apt: name={{ item }} state=present
+  with_items:
+  - build-essential
+  - vim-gtk
+  - git 
+  - subversion 
+  - realpath 
+  - cmake 
+  - python-pip
+  - libyaml-dev
+  - ipython
+- name: git config user.name
+  shell: git config --global user.name {{ user_name }}
+- name: git config user.email
+  shell: git config --global user.email {{ user_email }}
+
