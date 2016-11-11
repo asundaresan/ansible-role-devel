@@ -14,10 +14,17 @@
   git_config: name=user.name scope=global value="{{ user_name }}"
 - name: git config user.email
   git_config: name=user.email scope=global value="{{ user_email }}"
-- name: Install python packages
+- name: install python packages
   apt: name={{ item }} state=present
   with_items:
   - python-pyexiv2
   - libgexiv2-2
   - gir1.2-gexiv2-0.10
+- name: install latex packages
+  apt: name={{ item }} state=present
+  with_items:
+  - texlive-latex-base
+  - texlive-latex-recommended
+  - texlive-latex-extra
+  - latex-beamer
 
